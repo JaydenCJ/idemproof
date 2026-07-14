@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="512" viewBox="0 0 720 512" font-family="Menlo, Consolas, monospace" font-size="14">
+  <rect width="720" height="512" rx="10" fill="#101418"/>
+  <circle cx="24" cy="22" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e"/>
+  <circle cx="64" cy="22" r="6" fill="#27c93f"/>
+  <text x="360" y="27" fill="#8b949e" text-anchor="middle" font-size="12">idemproof — is your script actually re-runnable?</text>
+  <g fill="#c9d1d9">
+    <text x="24" y="62"><tspan fill="#7ee787">$</tspan> idemproof -- ./migrate.sh</text>
+    <text x="24" y="92"><tspan fill="#79c0ff">idemproof</tspan> — 2 runs of: ./migrate.sh</text>
+    <text x="24" y="112" fill="#8b949e">watch: .</text>
+    <text x="24" y="142">run 1  exit 0   <tspan fill="#7ee787">1 filesystem change</tspan></text>
+    <text x="24" y="164">run 2  exit 0   <tspan fill="#f778ba">1 filesystem change</tspan></text>
+    <text x="24" y="196" fill="#d2a8ff">first-run effects</text>
+    <text x="24" y="218">  <tspan fill="#7ee787">+ created</tspan>   applied.sql</text>
+    <text x="24" y="250" fill="#d2a8ff">run 2 violations</text>
+    <text x="24" y="272">  <tspan fill="#f778ba">~ modified</tspan>  applied.sql   content, size (35 B -&gt; 70 B)</text>
+    <text x="24" y="304" fill="#d2a8ff">output (run 1 vs run 2)</text>
+    <text x="24" y="326" fill="#8b949e">  stdout: identical (1 line)</text>
+    <text x="24" y="348" fill="#8b949e">  stderr: identical (0 lines)</text>
+    <text x="24" y="380" fill="#d2a8ff">violations</text>
+    <text x="24" y="402">  1. run 2 changed 1 path — a repeated run must be a filesystem no-op</text>
+    <text x="24" y="436">verdict: <tspan fill="#f778ba" font-weight="bold">NOT IDEMPOTENT</tspan> — 1 violation</text>
+    <text x="24" y="470" fill="#8b949e">exit code 1 — wire it straight into your release gate</text>
+  </g>
+</svg>
